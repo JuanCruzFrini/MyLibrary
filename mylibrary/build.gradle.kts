@@ -69,9 +69,9 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
 
-                groupId = "com.github.philipplackner"
-                artifactId = "image-preview-compose"
-                version = "1.0"
+                groupId = "com.github.JuanCruzFrini"
+                artifactId = "MyLibrary"
+                version = "1.0.0"
             }
         }
     }
