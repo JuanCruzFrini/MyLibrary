@@ -1,11 +1,12 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    `maven-publish`
 }
 
 android {
     namespace = "com.juancruz.mylibrary"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 24
@@ -60,4 +61,18 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+
+                groupId = "com.github.philipplackner"
+                artifactId = "image-preview-compose"
+                version = "1.0"
+            }
+        }
+    }
 }
